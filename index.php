@@ -29,7 +29,7 @@
         //echo "<tr><td> $filtre</td><td>" . filter_id($filtre) . "</td></tr>";
         // }
 
-        /*********************************** 2 filter_var()  *************************************************** */
+        /*********************************** 2 filter_var() INT *************************************************** */
 
         /**
          *Filtre une variable avec un filtre spécifique
@@ -72,6 +72,7 @@
         // } else {
         //     echo "Nombre incorrect ou non entier <br>";
         //  }
+        /*********************************** 3 filter_var() MAIL *************************************************** */
 
         /**
          *Filtre une variable avec un filtre spécifique
@@ -98,32 +99,59 @@
         //  }
 
 
-        $email = "te///s)))t@gmail.com";
+        //$email = "te///s)))t@gmail.com";
 
-        $emailFilter = filter_var($email, FILTER_SANITIZE_EMAIL);
+        // $emailFilter = filter_var($email, FILTER_SANITIZE_EMAIL);
 
-        if (!filter_var($emailFilter, FILTER_VALIDATE_EMAIL) === false) {
+        //if (!filter_var($emailFilter, FILTER_VALIDATE_EMAIL) === false) {
 
-            if ($emailFilter != $email) {
-                echo "Le mail possede desomer le bon format <br>
-                le mail envoyer $email <br>
-                mail apres transformation $emailFilter";
+        //if ($emailFilter != $email) {
+        //        echo "Le mail possede desomer le bon format <br>
+        //   le mail envoyer $email <br>
+        //      mail apres transformation $emailFilter";
+        // } else {
+        //       echo 'adresse mail OK';
+        //}
+        //   } else {
+        //echo 'adresse mail invalide';
+        //  }
+
+
+        /*********************************** 4 filter_var() URL*************************************************** */
+
+        /**
+         *Filtre une variable avec un filtre spécifique
+         *
+         *Ici, on filtre les emails avec un bon format que nous passons dans un premier temps une variable avec FILTER_SANITIZE_URL
+         *Qui supprime tous les caractères sauf les lettres, chiffres, et !#$%&'*+-=?^_`{|}~@.[].
+         *Puis dans une condition, on vérifie si l'adresse mail est valide avec FILTER_VALIDATE_URL
+         *Valide une adresse de courriel.
+         *https://www.php.net/manual/fr/function.filter-var.php
+         *
+         */
+
+        $url = "https://www.youtubéééée.fr";
+
+        $urlFilter = filter_var($url, FILTER_SANITIZE_URL);
+
+        if (!filter_var($urlFilter, FILTER_VALIDATE_URL) === false) {
+
+            if ($urlFilter != $url) {
+                echo "L'URL possede desomer le bon format <br>
+                l'URL envoyer $url <br>
+                URL apres transformation $urlFilter";
             } else {
-                echo 'adresse mail OK';
+                echo ' URL OK';
             }
         } else {
-            echo 'adresse mail invalide';
+            echo ' URL invalide';
         }
 
-
-        /*********************************** 3  *************************************************** */
-
-
-        /*********************************** 4  *************************************************** */
         /*********************************** 5  *************************************************** */
         /*********************************** 6  *************************************************** */
         /*********************************** 7  *************************************************** */
         /*********************************** 8  *************************************************** */
+        /*********************************** 9  *************************************************** */
         ?>
     </table>
 </body>
